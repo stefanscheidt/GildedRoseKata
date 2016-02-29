@@ -21,7 +21,7 @@ public class GildedRoseUpdateTest {
 		normalItem = new Item("+5 Dexterity Vest", 10, 20);
 		agedBrie = new Item("Aged Brie", 10, 20);
 		sulfuras = new Item("Sulfuras, Hand of Ragnaros", 10, 20);
-		backstagePass = new Item("Backstage passes to a TAFKAL80ETC concert", 15, 20);
+		backstagePass = new Item("Backstage passes to a TAFKAL80ETC concert", 11, 20);
 		conjuredItem = new Item("Conjured Mana Cake", 10, 20);
 		Item[] items = new Item[]{normalItem, agedBrie, sulfuras, backstagePass, conjuredItem};
 		gildedRose =   new GildedRose(items);
@@ -32,7 +32,7 @@ public class GildedRoseUpdateTest {
 		gildedRose.updateQuality();
 		assertThat(normalItem.sellIn, is(9));
 		assertThat(agedBrie.sellIn, is(9));
-		assertThat(backstagePass.sellIn, is(14));
+		assertThat(backstagePass.sellIn, is(10));
 	}
 
 	@Test
@@ -62,7 +62,7 @@ public class GildedRoseUpdateTest {
 
 	@Test
 	public void qualityIsNeverMoreThan50() {
-		ageByDays(30);
+		ageByDays(31);
 		assertThat(agedBrie.quality, is(50));
 	}
 
@@ -86,16 +86,16 @@ public class GildedRoseUpdateTest {
 
 	@Test
 	public void backstageQualityIncreasesByTwoWhen10DaysAreLeft() {
-		ageByDays(4);
+		ageByDays(1);
 		gildedRose.updateQuality();
-		assertThat(backstagePass.quality, is(25));
+		assertThat(backstagePass.quality, is(23));
 	}
 
 	@Test
 	public void backstageQualityIncreasesByThreeWhen5DaysAreLeft() {
-		ageByDays(9);
+		ageByDays(6);
 		gildedRose.updateQuality();
-		assertThat(backstagePass.quality, is(35));
+		assertThat(backstagePass.quality, is(34));
 	}
 
 	@Test
