@@ -4,6 +4,9 @@ This Kata was originally created by Terry Hughes (http://twitter.com/#!/TerryHug
 The tests are taken from this [Gist](https://gist.github.com/xpmatteo/5243745.js). I added a gradle build file.
 
 To start type
+    
     ./gradlew
+    
 and to build an IntelliJ Idea Project type
+    
     ./gradlew idea
