@@ -1,3 +1,4 @@
 .gradle
-GildedRose.iws
-out
+.idea
+*.iml
+build
