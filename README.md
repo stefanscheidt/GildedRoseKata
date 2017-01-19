@@ -12,6 +12,6 @@ To start type
     
     ./gradlew
     
-and to build an IntelliJ Idea Project type
+and to build an IntelliJ IDEA Project type
     
     ./gradlew idea
