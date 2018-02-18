@@ -1,4 +1,4 @@
-This Repo is based on [this](https://github.com/inevs/GildedRoseKata) from Sven Günther.
+This Repo is based on [this one](https://github.com/inevs/GildedRoseKata) from Sven Günther.
 
 This Kata is the Java-port from Emilie Bache's [Github Repository](https://github.com/emilybache/GildedRose-Refactoring-Kata).
 
@@ -15,3 +15,5 @@ To start type
 and to build an IntelliJ IDEA Project type
     
     ./gradlew idea
+
+Or simply open the projects folder in IDEA and use its Gradle project import feature.
