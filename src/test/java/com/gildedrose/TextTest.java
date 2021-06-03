@@ -12,7 +12,7 @@ import java.util.List;
 
 import static org.assertj.core.api.Assertions.assertThat;
 
-class TestText {
+class TextTest {
 
     @Test
     void verifyOutput() throws Exception {
