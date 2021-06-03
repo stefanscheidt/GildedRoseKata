@@ -1,8 +1,8 @@
 package com.gildedrose;
 
-import org.junit.Test;
+import org.junit.jupiter.api.Test;
 
-import static org.junit.Assert.assertEquals;
+import static org.junit.jupiter.api.Assertions.assertEquals;
 
 public class GildedRoseTest {
 
@@ -80,8 +80,8 @@ public class GildedRoseTest {
         String backstagePass = "Backstage passes to a TAFKAL80ETC concert";
         givenItemWithSellinAndQuality(backstagePass, sellIn, startQuality);
         whenWeUpdateTheQuality();
-        assertEquals("quality for sellIn " + sellIn, expectedQuality, app.items(0).quality);
-        assertEquals("new sellIn for old sellIn " + sellIn, sellIn - 1, app.items(0).sellIn);
+        assertEquals(expectedQuality, app.items(0).quality);
+        assertEquals(sellIn - 1, app.items(0).sellIn);
     }
 
     private void whenWeUpdateTheQuality() {
@@ -95,7 +95,7 @@ public class GildedRoseTest {
 
     private void thenItemBecomes(String name, int sellIn, int quality) {
         assertEquals(name, app.items(0).name);
-        assertEquals("sellIn", sellIn, app.items(0).sellIn);
-        assertEquals("quality", quality, app.items(0).quality);
+        assertEquals(sellIn, app.items(0).sellIn);
+        assertEquals(quality, app.items(0).quality);
     }
 }
