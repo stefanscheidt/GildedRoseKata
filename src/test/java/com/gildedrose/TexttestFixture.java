@@ -1,10 +1,36 @@
 package com.gildedrose;
 
-public class TexttestFixture {
-    public static void main(String[] args) {
-        System.out.println("OMGHAI!");
+import java.io.FileWriter;
+import java.io.PrintWriter;
 
-        Item[] items = new Item[] {
+public class TextTestFixture {
+
+    public static final int DAYS = 30;
+    public static final String FILENAME = "./testtext/stdout.txt";
+
+    public static void printFixture(PrintWriter writer) {
+        var fixture = new TextTestFixture();
+        writer.println("OMGHAI!");
+        for (int i = 0; i <= DAYS; i++) {
+            writer.println("-------- day " + i + " --------");
+            writer.println("name, sellIn, quality");
+            for (Item item : fixture.items) writer.println(item);
+            writer.println();
+            writer.flush();
+            fixture.gildedRose.updateQuality();
+        }
+    }
+
+    public static void main(String[] args) throws Exception {
+        var writer = new PrintWriter(new FileWriter(FILENAME));
+        printFixture(writer);
+    }
+
+    private final Item[] items;
+    private final GildedRose gildedRose;
+
+    private TextTestFixture() {
+        items = new Item[]{
                 new Item("+5 Dexterity Vest", 10, 20), //
                 new Item("Aged Brie", 2, 0), //
                 new Item("Elixir of the Mongoose", 5, 7), //
@@ -14,24 +40,8 @@ public class TexttestFixture {
                 new Item("Backstage passes to a TAFKAL80ETC concert", 10, 49),
                 new Item("Backstage passes to a TAFKAL80ETC concert", 5, 49),
                 // this conjured item does not work properly yet
-                new Item("Conjured Mana Cake", 3, 6) };
-
-        GildedRose app = new GildedRose(items);
-
-        int days = 10;
-        if (args.length > 0) {
-            days = Integer.parseInt(args[0]) + 1;
-        }
-
-        for (int i = 0; i < days; i++) {
-            System.out.println("-------- day " + i + " --------");
-            System.out.println("name, sellIn, quality");
-            for (Item item : items) {
-                System.out.println(item);
-            }
-            System.out.println();
-            app.updateQuality();
-        }
+                new Item("Conjured Mana Cake", 3, 6)};
+        gildedRose = new GildedRose(items);
     }
 
 }
